@@ -5,16 +5,6 @@ use App\Http\Controllers\SalariesController;
 use App\Http\Controllers\SalarySlipsController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('login');
@@ -32,8 +22,6 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('/login', 'login')->name('login')->middleware('guest');
     Route::post('/login/process', 'process');
     Route::post('/logout', 'logout');
-<<<<<<< Updated upstream
-=======
     Route::get('/signup', 'signup');
     Route::get('/user-salary', function () {
         return view('user-salary');
@@ -42,13 +30,10 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('/salaryreceipt', [SalarySlipsController::class, 'salaryreceipt']);
     // Route::get('/editpayslip', [SalarySlipsController::class, 'editpayslip']);
     Route::get('/salarySlips', [SalarySlipsController::class, 'salarySlips']);
->>>>>>> Stashed changes
 });
 
 // Route::post('/generate-salary-slip', [SalariesController::class, 'generateSalarySlip']);
 
-<<<<<<< Updated upstream
-=======
 Route::controller(SalariesController::class)->group(function() {
     // Route::post('/generate-salary-slip', 'generateSalarySlip');
     Route::post('/create/salary-slip', 'generateSalarySlip');
@@ -63,6 +48,5 @@ Route::controller(SalarySlipsController::class)->group(function() {
 
 
 
->>>>>>> Stashed changes
 
 

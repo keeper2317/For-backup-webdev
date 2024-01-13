@@ -9,8 +9,6 @@ class Salary_slips extends Model
 {
     use HasFactory;
 
-<<<<<<< Updated upstream
-=======
     protected $fillable = [
         'emp_code',
         'emp_name',
@@ -26,7 +24,6 @@ class Salary_slips extends Model
 
     protected $primaryKey = 'slip_id';
 
->>>>>>> Stashed changes
     public function salaries()
     {
         return $this->belongsTo(Salaries::class);

@@ -9,14 +9,21 @@ use Illuminate\Http\Request;
 class SalarySlipsController extends Controller
 {
 
-    public function index()
+    // public function index()
+    // {
+    //     return view('salarySlips');
+    // }
+
+    public function salarySlips()
     {
         return view('salarySlips');
     }
 
+    public function salaryreceipt()
+    {
+        return view('salary-receipt');
+    }
 
-<<<<<<< Updated upstream
-=======
     public function editpayslip()
     {
         return view('edit-payslip');
@@ -32,7 +39,6 @@ class SalarySlipsController extends Controller
     {
         return view('salarySlips');
     }
->>>>>>> Stashed changes
 
     public function edit($slipId)
     {

@@ -62,8 +62,8 @@
               <section class="log-in">
                 <button type="submit" type="submit" class="btn btn-greensea">Log In</button>
                 <span>or</span>
-                <button class="btn btn-slategray">
-                  <a href="signup.html">Create an account</a>
+                <button type="submit" type="submit" class="btn btn-slategray">
+                  <a href="/signup">Create an account</a>
                 </button>
               </section>
             </form>

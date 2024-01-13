@@ -8,12 +8,9 @@ use App\Models\Salary_Slips;
 
 class SalariesController extends Controller
 {
+
     public function generateSalarySlip(Request $request)
     {
-<<<<<<< Updated upstream
-        // Retrieve data from the request
-        $data = $request->all();
-=======
         // Extract data from the form
         $employeeCode = $request->input('employeeCode');
         $employeeName = $request->input('employeeName');
@@ -33,19 +30,23 @@ class SalariesController extends Controller
         $philhealth = $request->input('philhealth');
         $paidLeaves = $request->input('paidLeaves');
         $pagIbig = $request->input('pagIbig');
->>>>>>> Stashed changes
 
-        // You may want to validate the data here before processing
+        // Calculate total earnings and total deductions based on form inputs
+        $totalEarnings = $basicSalary + $overtime + $incentives + $allowances + $bonuses + $commissions + $paidLeaves;
+        $totalDeductions = $late + $absent + $incomeTax + $withholdingTax + $sss + $philhealth + $pagIbig;
 
-        // Calculate net salary payable (for demonstration purposes, you can customize this logic)
-        $netSalaryPayable = $data['totalEarnings'] - $data['totalDeductions'];
+        // Calculate net salary payable
+        $netSalaryPayable = $totalEarnings - $totalDeductions;
 
-        // Save the salary slip record
+        // Store data in the salary_slips table
         $salarySlip = new Salary_slips([
-            'employee_code' => $data['employeeCode'],
-            'total_earnings' => $data['totalEarnings'],
-            'total_deductions' => $data['totalDeductions'],
-            'net_salary_payable' => $netSalaryPayable,
+            'emp_code' => $employeeCode,
+            'emp_name' => $employeeName,
+            'payment_period_start' => now(),
+            'payment_period_end' => now(),
+            'earnings' => $totalEarnings,
+            'deductions' => $totalDeductions,
+            'net_salary' => $netSalaryPayable,
         ]);
 
         // Create a new Salary instance
@@ -74,7 +75,9 @@ class SalariesController extends Controller
         $salarySlip->save();
         $salary->save();
 
-        // Return a response (you can customize this based on your needs)
-        return response()->json(['message' => 'Salary slip generated successfully']);
+        // Redirect to /salary-slip
+        return redirect('/salary-slip')->with('success', 'Salary slip generated successfully!');
     }
+
+
 }

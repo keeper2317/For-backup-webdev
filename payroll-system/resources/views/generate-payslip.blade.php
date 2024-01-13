@@ -94,25 +94,6 @@
                 <ul class="dropdown-menu arrow settings">
 
                   <li>
-                    <h3>Backgrounds:</h3>
-                    <ul id="color-schemes">
-                      <li><a href="index.html#" class="bg-1"></a></li>
-                      <li><a href="index.html#" class="bg-2"></a></li>
-                      <li><a href="index.html#" class="bg-3"></a></li>
-                      <li><a href="index.html#" class="bg-4"></a></li>
-                      <li><a href="index.html#" class="bg-5"></a></li>
-                      <li><a href="index.html#" class="bg-6"></a></li>
-                      <li class="title">Solid Backgrounds:</li>
-                      <li><a href="index.html#" class="solid-bg-1"></a></li>
-                      <li><a href="index.html#" class="solid-bg-2"></a></li>
-                      <li><a href="index.html#" class="solid-bg-3"></a></li>
-                      <li><a href="index.html#" class="solid-bg-4"></a></li>
-                      <li><a href="index.html#" class="solid-bg-5"></a></li>
-                      <li><a href="index.html#" class="solid-bg-6"></a></li>
-                    </ul>
-                  </li>
-
-                  <li>
                     <a href="index.html#"><i class="fa fa-user"></i> Profile</a>
                   </li>
 
@@ -176,7 +157,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="salarySlips.html">
+                        <a href="salary-slip">
                           <i class="fa fa-caret-right"></i> Salary Slips
                         </a>
                       </li>
@@ -198,10 +179,10 @@
 
         <div class="pagecontent-panel">
           <div class="salSlip-title">
-            <b>Salary for January, 2024</b>
+            <b>Salary for January 13, 2024 - January 20, 2024</b>
           </div>
 
-          <div class="salSlip-panel">
+          <div class="salSlip-panel2">
             <div class="empInfo">
 
               <table class="empInfo-table" border="1">
@@ -221,17 +202,14 @@
             </div>
 
             <div class="payslip">
-                <form id="generate-salary-slip-form">
+                <form action="/create/salary-slip" method="POST">
                     @csrf <!-- CSRF token for form submission -->
 
-<<<<<<< Updated upstream
-=======
                     <input type="hidden" name="employeeCode" value="0001">
                     <input type="hidden" name="employeeName" value="Jarrell I. Reyes">
                     <input type="hidden" name="title_position" value="Front end developer">
                     <input type="hidden" name="code" value="12345678910">
 
->>>>>>> Stashed changes
                     <table class="payslip-table" border="1">
                         <tr>
                             <th>Earnings</th>
@@ -242,7 +220,9 @@
 
                         <tr>
                             <th>Basic Salary</th>
-                            <td><input type="number" name="basicSalary" value="15000"></td>
+                            <td>
+                              <input class="textbox" type="number" name="basicSalary" value="15000" onkeydown="return false">
+                            </td>
                             <th>Late</th>
                             <td><input type="number" name="late" value="00000"></td>
                         </tr>
@@ -301,90 +281,12 @@
                         Net Salary Payable: <span id="netSalaryPayable">0.00</span>
                     </div>
 
-                    <button class="salPayable-btn" type="button" onclick="generateSalarySlip()">Generate Payslip</button>
+                    <button class="salPayable-btn2" type="submit">Generate Payslip</button>
                 </form>
             </div>
           </div>
         </div>
 
-        <!-- Include this script in your HTML file, preferably at the end of the body tag -->
-        <script>
-            // Function to calculate and update total earnings, total deductions, and net salary payable
-            function calculateTotals() {
-                // Get values from input fields
-                const basicSalary = parseFloat(document.querySelector('input[name="basicSalary"]').value) || 0;
-                const late = parseFloat(document.querySelector('input[name="late"]').value) || 0;
-                const overtime = parseFloat(document.querySelector('input[name="overtime"]').value) || 0;
-                const absent = parseFloat(document.querySelector('input[name="absent"]').value) || 0;
-                const incentives = parseFloat(document.querySelector('input[name="incentives"]').value) || 0;
-                const incomeTax = parseFloat(document.querySelector('input[name="incomeTax"]').value) || 0;
-                const allowances = parseFloat(document.querySelector('input[name="allowances"]').value) || 0;
-                const withholdingTax = parseFloat(document.querySelector('input[name="withholdingTax"]').value) || 0;
-                const bonuses = parseFloat(document.querySelector('input[name="bonuses"]').value) || 0;
-                const sss = parseFloat(document.querySelector('input[name="sss"]').value) || 0;
-                const commissions = parseFloat(document.querySelector('input[name="commissions"]').value) || 0;
-                const philhealth = parseFloat(document.querySelector('input[name="philhealth"]').value) || 0;
-                const paidLeaves = parseFloat(document.querySelector('input[name="paidLeaves"]').value) || 0;
-                const pagIbig = parseFloat(document.querySelector('input[name="pagIbig"]').value) || 0;
-
-                // Calculate total earnings and total deductions
-                const totalEarnings = basicSalary + overtime + incentives + allowances + bonuses + commissions + paidLeaves;
-                const totalDeductions = late + absent + incomeTax + withholdingTax + sss + philhealth + pagIbig;
-
-                // Update total earnings and total deductions in the form
-                document.querySelector('input[name="totalEarnings"]').value = totalEarnings.toFixed(2);
-                document.querySelector('input[name="totalDeductions"]').value = totalDeductions.toFixed(2);
-
-                // Calculate and update net salary payable
-                const netSalaryPayable = totalEarnings - totalDeductions;
-                document.getElementById('netSalaryPayable').innerText = netSalaryPayable.toFixed(2);
-            }
-
-            // Function to generate salary slip and submit data to the backend
-            function generateSalarySlip() {
-                calculateTotals();
-
-                // Get data from the form
-                const formData = {
-                    basicSalary: document.querySelector('input[name="basicSalary"]').value,
-                    late: document.querySelector('input[name="late"]').value,
-                    overtime: document.querySelector('input[name="overtime"]').value,
-                    absent: document.querySelector('input[name="absent"]').value,
-                    incentives: document.querySelector('input[name="incentives"]').value,
-                    incomeTax: document.querySelector('input[name="incomeTax"]').value,
-                    allowances: document.querySelector('input[name="allowances"]').value,
-                    withholdingTax: document.querySelector('input[name="withholdingTax"]').value,
-                    bonuses: document.querySelector('input[name="bonuses"]').value,
-                    sss: document.querySelector('input[name="sss"]').value,
-                    commissions: document.querySelector('input[name="commissions"]').value,
-                    philhealth: document.querySelector('input[name="philhealth"]').value,
-                    paidLeaves: document.querySelector('input[name="paidLeaves"]').value,
-                    pagIbig: document.querySelector('input[name="pagIbig"]').value,
-                    totalEarnings: document.querySelector('input[name="totalEarnings"]').value,
-                    totalDeductions: document.querySelector('input[name="totalDeductions"]').value,
-                    netSalaryPayable: document.getElementById('netSalaryPayable').innerText,
-                };
-
-                // Make an AJAX request to submit data
-                fetch('/generate-salary-slip', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                    },
-                    body: JSON.stringify(formData),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    // Optionally, handle the response, e.g., show a success message
-                })
-                .catch(error => console.error('Error:', error));
-            }
-        </script>
-
-
-        <!-- Page content end -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -418,206 +320,5 @@
     <script src="assets/js/vendor/chosen/chosen.jquery.min.js"></script>
 
     <script src="assets/js/minimal.min.js"></script>
-
-    <script>
-    $(function(){
-
-      // Initialize card flip
-      $('.card.hover').hover(function(){
-        $(this).addClass('flip');
-      },function(){
-        $(this).removeClass('flip');
-      });
-
-      // Initialize flot chart
-      var d1 =[ [1, 715],
-            [2, 985],
-            [3, 1525],
-            [4, 1254],
-            [5, 1861],
-            [6, 2621],
-            [7, 1987],
-            [8, 2136],
-            [9, 2364],
-            [10, 2851],
-            [11, 1546],
-            [12, 2541]
-      ];
-      var d2 =[ [1, 463],
-                [2, 578],
-                [3, 327],
-                [4, 984],
-                [5, 1268],
-                [6, 1684],
-                [7, 1425],
-                [8, 1233],
-                [9, 1354],
-                [10, 1200],
-                [11, 1260],
-                [12, 1320]
-      ];
-      var months = ["January", "February", "March", "April", "May", "Juny", "July", "August", "September", "October", "November", "December"];
-
-      // flot chart generate
-      var plot = $.plotAnimator($("#statistics-chart"),
-        [
-          {
-            label: 'Sales',
-            data: d1,
-            lines: {lineWidth:3},
-            shadowSize:0,
-            color: '#ffffff'
-          },
-          { label: "Visits",
-            data: d2,
-            animator: {steps: 99, duration: 500, start:200, direction: "right"},
-            lines: {
-              fill: .15,
-              lineWidth: 0
-            },
-            color:['#ffffff']
-          },{
-            label: 'Sales',
-            data: d1,
-            points: { show: true, fill: true, radius:6,fillColor:"rgba(0,0,0,.5)",lineWidth:2 },
-            color: '#fff',
-            shadowSize:0
-          },
-          { label: "Visits",
-            data: d2,
-            points: { show: true, fill: true, radius:6,fillColor:"rgba(255,255,255,.2)",lineWidth:2 },
-            color: '#fff',
-            shadowSize:0
-          }
-        ],{
-
-        xaxis: {
-
-          tickLength: 0,
-          tickDecimals: 0,
-          min:1,
-          ticks: [[1,"JAN"], [2, "FEB"], [3, "MAR"], [4, "APR"], [5, "MAY"], [6, "JUN"], [7, "JUL"], [8, "AUG"], [9, "SEP"], [10, "OCT"], [11, "NOV"], [12, "DEC"]],
-
-          font :{
-            lineHeight: 24,
-            weight: "300",
-            color: "#ffffff",
-            size: 14
-          }
-        },
-
-        yaxis: {
-          ticks: 4,
-          tickDecimals: 0,
-          tickColor: "rgba(255,255,255,.3)",
-
-          font :{
-            lineHeight: 13,
-            weight: "300",
-            color: "#ffffff"
-          }
-        },
-
-        grid: {
-          borderWidth: {
-            top: 0,
-            right: 0,
-            bottom: 1,
-            left: 1
-          },
-          borderColor: 'rgba(255,255,255,.3)',
-          margin:0,
-          minBorderMargin:0,
-          labelMargin:20,
-          hoverable: true,
-          clickable: true,
-          mouseActiveRadius:6
-        },
-
-        legend: { show: false}
-      });
-
-      $(window).resize(function() {
-        // redraw the graph in the correctly sized div
-        plot.resize();
-        plot.setupGrid();
-        plot.draw();
-      });
-
-      $('#mmenu').on(
-        "opened.mm",
-        function()
-        {
-          // redraw the graph in the correctly sized div
-          plot.resize();
-          plot.setupGrid();
-          plot.draw();
-        }
-      );
-
-      $('#mmenu').on(
-        "closed.mm",
-        function()
-        {
-          // redraw the graph in the correctly sized div
-          plot.resize();
-          plot.setupGrid();
-          plot.draw();
-        }
-      );
-
-      // tooltips showing
-      $("#statistics-chart").bind("plothover", function (event, pos, item) {
-        if (item) {
-          var x = item.datapoint[0],
-              y = item.datapoint[1];
-
-          $("#tooltip").html('<h1 style="color: #418bca">' + months[x - 1] + '</h1>' + '<strong>' + y + '</strong>' + ' ' + item.series.label)
-            .css({top: item.pageY-30, left: item.pageX+5})
-            .fadeIn(200);
-        } else {
-          $("#tooltip").hide();
-        }
-      });
-
-      //tooltips options
-      $("<div id='tooltip'></div>").css({
-        position: "absolute",
-        //display: "none",
-        padding: "10px 20px",
-        "background-color": "#ffffff",
-        "z-index":"99999"
-      }).appendTo("body");
-
-      //todo's
-      $('#todolist li label').click(function() {
-        $(this).toggleClass('done');
-      });
-
-      // Initialize tabDrop
-      $('.tabdrop').tabdrop({text: '<i class="fa fa-th-list"></i>'});
-
-      //load wysiwyg editor
-      $('#quick-message-content').summernote({
-        toolbar: [
-          //['style', ['style']], // no style button
-          ['style', ['bold', 'italic', 'underline', 'clear']],
-          ['fontsize', ['fontsize']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['height', ['height']],
-          //['insert', ['picture', 'link']], // no insert buttons
-          //['table', ['table']], // no table button
-          //['help', ['help']] //no help button
-        ],
-        height: 143   //set editable area's height
-      });
-
-      //multiselect input
-      $(".chosen-select").chosen({disable_search_threshold: 10});
-
-    })
-
-    </script>
   </body>
 </html>

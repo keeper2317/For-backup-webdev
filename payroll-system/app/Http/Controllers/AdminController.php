@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\View as FacadesView;
 
 class AdminController extends Controller
 {
-    public function login(){
-        if(FacadesView::exists('login')){
+    public function login()
+    {
+        
+        if (FacadesView::exists('login')) {
             return view('login');
-        }else{
+        } else {
             return abort(404);
         }
 
@@ -49,6 +51,9 @@ class AdminController extends Controller
         return redirect('/login')->with('message', 'Logout successful');
     }
 
+    public function signup(){
+        return view('signup');
+    }
 
 
     // // Admin login

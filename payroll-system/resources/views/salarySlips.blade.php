@@ -26,18 +26,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-GLhlTQ8i6c6EM3eapF8AqQKk/6Kh/j6IbYPS1z+wwpZlO/63l/5dz1B5C/S+hZ" crossorigin="anonymous">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
   </head>
-<<<<<<< Updated upstream
-  <body>
-=======
   <body class="bg-2">
->>>>>>> Stashed changes
 
     <!-- Preloader -->
     <div class="mask"><div id="loader"></div></div>
@@ -113,7 +103,7 @@
                   <li class="divider"></li>
 
                   <li>
-                    <a href="{{ route('login') }}"><i class="fa fa-power-off"></i> Logout</a>
+                    <a href="{{ url('login') }}"><i class="fa fa-power-off"></i> Logout</a>
                   </li>
                 </ul>
               </li>
@@ -133,10 +123,6 @@
                 <a href="index.html#" class="sidebar-toggle" data-toggle="#navigation">Navigation <i class="fa fa-angle-up"></i></a>
 
                 <ul class="menu">
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                   <li class="active">
                     <a href="index.html">
                       <i class="fa fa-tachometer"></i> Dashboard
@@ -151,7 +137,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="generate-payslip.html">
+                        <a href="{{ url('generate-payslip') }}">
                           <i class="fa fa-caret-right"></i> Generate Payslip
                         </a>
                       </li>
@@ -242,206 +228,6 @@
                       <th class="salSlips-action">Actions</th>
                   </tr>
 
-<<<<<<< Updated upstream
-                  <tr>
-                    <td class="empcode">0001</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="empcode">0002</td>
-                    <td class="name">Alieza Me Torio Cutamora</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="empcode">0003</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empcode">0004</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="empcode">0005</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="empcode">0006</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="empcode">0007</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="empcode">0008</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="empcode">0009</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="empcode">0010</td>
-                    <td class="name">Jarrell Inocando Reyes</td>
-                    <td class="period">11/17/2003 - 11/23/2003</td>
-                    <td class="earning">99999.00</td>
-                    <td class="deduction">11111.00</td>
-                    <td class="netsalary">88888.00</td>
-                    <td>
-                      <button class="salSlip-btn" type="button">
-                        <img src="assets/images/download.png" alt="download">
-                      </button>
-                      <button class="salSlip-btn2" type="button">
-                        <img src="assets/images/edit.png" alt="edit">
-                      </button>
-                      <button class="salSlip-btn3" type="button">
-                        <img src="assets/images/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-=======
                   @foreach ($salarySlips as $slip)
                         <tr>
                             <td class="empcode">{{ $slip->emp_code }}</td>
@@ -468,7 +254,6 @@
                             </td>
                         </tr>
                     @endforeach
->>>>>>> Stashed changes
 
 
               </table>
@@ -488,10 +273,6 @@
         </div>
       </div>
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         <!-- Page content end -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
